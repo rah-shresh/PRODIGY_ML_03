@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cat vs Dog Classifier</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🐱 Cat vs 🐶 Dog Classifier</h1>
+
+        <form action="/predict"
+              method="post"
+              enctype="multipart/form-data">
+
+            <input type="file"
+                   name="image"
+                   required>
+
+            <button type="submit">
+                Predict
+            </button>
+
+        </form>
+
+
+
+      {% if image_path %}
+
+      <div class="result">
+        Prediction: {{ prediction }}
+      </div>
+
+      <img src="/history/{{ image_path }}"
+
+      alt="Uploaded Image">
+
+      {% endif %}
+
+    </div>
+
+</body>
+</html>
